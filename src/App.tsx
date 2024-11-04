@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import useMetaMask from "./hooks/useMetaMask";
 import { ChakraProvider, Button, Input, Box, Flex, FormControl, FormLabel } from "@chakra-ui/react";
+import { HolderPage } from "./pages/holder/HolderPage";
+import { HolderPageNavigateCard } from "./components/HolderPageNavigateCard";
 
 const App = () => {
   const { account, connectWithMetaMask } = useMetaMask();
