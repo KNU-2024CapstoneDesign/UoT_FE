@@ -9,7 +9,7 @@ import {
   CardTitle,
 } from './index.styles';
 
-export const SignupPage = () => {
+export const AuthPage = () => {
   return (
     <>
       <Wrapper>
