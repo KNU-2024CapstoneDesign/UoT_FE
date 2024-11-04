@@ -5,4 +5,6 @@ export const RouterPath = {
   signupHolder: '/signup-holder',
   loginHolder: '/login-holder',
   holderHome: '/holder',
+  requestVc: '/request-vc',
+  myVc: '/my-vc',
 };

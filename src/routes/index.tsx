@@ -4,6 +4,9 @@ import { HomePage } from '@/pages/Holder/Home'
 import { HolderSignUpPage } from '@/pages/Holder/Auth/SignUpHolder';
 import { AuthPage } from '@/pages/Holder/Auth';
 import { HolderLoginPage } from '@/pages/Holder/Auth/LoginHolder';
+import { RequestVcPage } from '@/pages/Holder/Vc/RequestVc';
+import { MyVcPage } from '@/pages/Holder/Vc/MyVc';
+import { HolderHomePage } from '@/pages/Holder/Home/HolderHome';
 
 const router = createBrowserRouter([
   {
@@ -24,6 +27,18 @@ const router = createBrowserRouter([
       {
         path: RouterPath.loginHolder,
         element: <HolderLoginPage />,
+      },
+      {
+        path: RouterPath.holderHome,
+        element: <HolderHomePage />,
+      },
+      {
+        path: RouterPath.requestVc,
+        element: <RequestVcPage />,
+      },
+      {
+        path: RouterPath.myVc,
+        element: <MyVcPage />,
       },
     ],
   },

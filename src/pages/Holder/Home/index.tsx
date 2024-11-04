@@ -7,10 +7,7 @@ export const HomePage = () => {
 
   return (
     <div>
-      {isAuthenticated ? 
-      <HolderHomePage />
-      : 
-      <AuthPage />}
+      {isAuthenticated ? <HolderHomePage /> : <AuthPage />}
     </div>
   );
 };
