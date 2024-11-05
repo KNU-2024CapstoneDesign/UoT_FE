@@ -28,6 +28,7 @@ export interface IssuerResponse {
 }
 
 export interface VCResponse {
+  id: number;
   issuerName: string;
   issuanceDate: string;
   credentialSubject: {

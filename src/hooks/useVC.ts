@@ -3,7 +3,7 @@ import { useState, useEffect } from "react"
 import { VCResponse } from "@/types";
 
 export const useVC = () => {
-  const [ vcData, setVCData ] = useState<VCResponse>();
+  const [ vcData, setVCData ] = useState<VCResponse[]>([]);
 
   useEffect(() => {
     const fetchVC = async () => {

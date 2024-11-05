@@ -15,6 +15,6 @@ export const getMyVC = async () => {
     throw new Error('발급받은 VC 가져오기 실패');
   }
 
-  const data: VCResponse = await response.json();
+  const data: VCResponse[] = await response.json();
   return data;
 };
