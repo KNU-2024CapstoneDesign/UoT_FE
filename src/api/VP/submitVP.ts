@@ -1,11 +1,11 @@
 import { VPRequest } from "@/types";
 import { fetchAPI } from "..";
 
-export const submitVP = async ({ verifierId, vpProof, vc }: VPRequest) => {
+export const submitVP = async (vpRequest: VPRequest) => {
   const response = await fetchAPI({
     method: 'POST',
-    endpoint: '/holder/vp/submit',
-    body: { verifierId, vpProof, vc },
+    endpoint: '/credentials/submit',
+    body: vpRequest,
   });
 
   if (response.status !== 200) {

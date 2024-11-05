@@ -38,6 +38,10 @@ export interface VCResponse {
 
 export interface VPRequest {
   verifierId: number;
-  vpProof: JSON;
-  vc: number[]
+  vcIds: number[]
+}
+
+export interface VerfierResponse {
+  id: number;
+  name: string;
 }
