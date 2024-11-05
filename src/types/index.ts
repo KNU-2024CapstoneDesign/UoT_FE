@@ -26,3 +26,11 @@ export interface IssuerResponse {
   id: number;
   name: string;
 }
+
+export interface VCResponse {
+  issuerName: string;
+  issuanceDate: string;
+  credentialSubject: {
+    [key: string]: string; // 가변 길이 키-값 쌍을 허용
+  };
+}
