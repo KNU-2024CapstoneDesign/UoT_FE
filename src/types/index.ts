@@ -15,3 +15,14 @@ export interface AuthContextType {
     isAuthenticated: boolean;
   }) => void;
 }
+
+export interface RequestVcData {
+  holderDid: string;
+  issuerId: number;
+  stdId: number;
+}
+
+export interface IssuerResponse {
+  id: number;
+  name: string;
+}
