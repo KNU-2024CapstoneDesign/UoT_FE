@@ -1,4 +1,3 @@
-import { useNavigate } from 'react-router-dom';
 import { useSignUp } from '@/hooks/useSignUp';
 import { HolderSignUpData } from '@/types';
 import { useState, useEffect } from 'react';
@@ -7,7 +6,6 @@ import { Wrapper, TitleWrapper, StyledTitleText, StyledConnectWalletText, FormWr
 import { ConnectWalletButton } from '@/components/ConnectWalletButton';
 
 export const HolderSignUpPage = () => {
-  const navigate = useNavigate();
   const [confirmPassword, setConfirmPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const { handleSignUp } = useSignUp();
@@ -39,15 +37,7 @@ export const HolderSignUpPage = () => {
 
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    const { walletAddress, name } = holderSignUpData;
-    const password = confirmPassword; // Use confirmed password
-    const dataToSignUp = { walletAddress, password, name };
-
-    const isSignupSuccessful = await handleSignUp(dataToSignUp);
-    if (isSignupSuccessful) {
-      navigate('/login-holder'); // Navigate to login on success
-    }
+    await handleSignUp(holderSignUpData);
   };
 
   // Check if passwords match and set error message if they don't
