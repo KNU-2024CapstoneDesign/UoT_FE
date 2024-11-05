@@ -1,19 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import useMetaMask from "@/hooks/useMetaMask";
 
 interface ConnectWalletButtonProps {
-  onWalletConnect: (walletAddress: string) => void; // 지갑 주소를 부모 컴포넌트로 전달하는 함수
+  onWalletConnect: (walletAddress: string) => void; // Function to pass wallet address to parent component
 }
 
 export const ConnectWalletButton: React.FC<ConnectWalletButtonProps> = ({ onWalletConnect }) => {
-  const { account, connectWithMetaMask } = useMetaMask();
+  const [account, setAccount] = useState<string | null>(null); // Initialize account state as string or null
+  const { connectWithMetaMask } = useMetaMask();
 
   const handleConnect = async () => {
     try {
-      await connectWithMetaMask(); // MetaMask와 연결
-      const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-      const walletAddress = accounts[0];
-      onWalletConnect(walletAddress); // 지갑 주소를 부모 컴포넌트로 전달
+      const connectedAccount = await connectWithMetaMask(); // Connect to MetaMask
+      if (connectedAccount) {
+        onWalletConnect(connectedAccount); // Pass wallet address to parent component
+        setAccount(connectedAccount); // Set account state
+      }
     } catch (error) {
       console.error('Error connecting to MetaMask:', error);
     }

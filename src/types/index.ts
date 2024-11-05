@@ -35,3 +35,9 @@ export interface VCResponse {
     [key: string]: string; // 가변 길이 키-값 쌍을 허용
   };
 }
+
+export interface VPRequest {
+  verifierId: number;
+  vpProof: JSON;
+  vc: number[]
+}

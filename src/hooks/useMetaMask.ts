@@ -2,9 +2,7 @@
 import { useCallback, useEffect, useState } from "react";
 
 const useMetaMask = () => {
-  const [account, setAccount] = useState<string | null>(null);
-  const [isMetaMaskInstalled, setIsMetaMaskInstalled] =
-    useState<boolean>(false);
+  const [isMetaMaskInstalled, setIsMetaMaskInstalled] = useState<boolean>(false);
 
   useEffect(() => {
     // Check if MetaMask is installed
@@ -23,8 +21,15 @@ const useMetaMask = () => {
       const accounts = await window.ethereum.request({
         method: "eth_requestAccounts",
       });
-      console.log("Connected account:", accounts[0]);
-      setAccount(accounts[0]); // Save the connected account
+      const message = "Please sign this message to confirm your identity."; // Customize your message
+      const signature = await window.ethereum.request({
+        method: "personal_sign",
+        params: [accounts[0], message],
+      });
+      if (signature) {
+        console.log("Signature:", signature); // Use the signature as needed
+        return accounts[0];
+      }
     } catch (e: any) {
       if (e.code === 4001) {
         console.log("User rejected the request.");
@@ -34,7 +39,7 @@ const useMetaMask = () => {
     }
   }, [isMetaMaskInstalled]);
 
-  return { account, connectWithMetaMask };
+  return { connectWithMetaMask };
 };
 
 export default useMetaMask;

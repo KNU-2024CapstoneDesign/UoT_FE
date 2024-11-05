@@ -7,6 +7,7 @@ import { HolderLoginPage } from '@/pages/Holder/Auth/LoginHolder';
 import { RequestVcPage } from '@/pages/Holder/Vc/RequestVc';
 import { MyVcPage } from '@/pages/Holder/Vc/MyVc';
 import { HolderHomePage } from '@/pages/Holder/Home/HolderHome';
+import { VpSubmitPage } from '@/pages/Holder/Vp/VpSubmit';
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
         path: RouterPath.myVc,
         element: <MyVcPage />,
       },
+      {
+        path: RouterPath.sendVP,
+        element: <VpSubmitPage />
+      }
     ],
   },
 ]);

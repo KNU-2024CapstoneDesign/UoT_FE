@@ -6,4 +6,5 @@ export const RouterPath = {
   loginHolder: '/holder/login',
   requestVc: '/holder/vc/request',
   myVc: '/holder/vc',
+  sendVP: '/holder/vp/send',
 };
