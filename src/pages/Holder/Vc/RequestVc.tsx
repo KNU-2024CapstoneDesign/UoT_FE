@@ -98,7 +98,6 @@ export const RequestVcPage = () => {
               placeholder='학번을 입력해주세요'
               focusBorderColor='#FF1658'
               mb='10px'
-              value={requestVcData.stdId}
               onChange={handleInputChange}
             />
           </FormControl>
