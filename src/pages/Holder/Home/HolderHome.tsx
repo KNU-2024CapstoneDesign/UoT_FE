@@ -14,7 +14,7 @@ export const HolderHomePage = () => {
     <Wrapper>
       <TitleText fontSize='3x1' as='b'>
         증명서를 발급받거나 기존 증명서를 확인하세요
-        </TitleText>
+      </TitleText>
       <TypeWrapper>
       <Link to={RouterPath.requestVc}>
         <CardWrapper>
