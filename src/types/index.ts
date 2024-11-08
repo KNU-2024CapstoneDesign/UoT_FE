@@ -11,9 +11,7 @@ export interface HolderLoginData {
 
 export interface AuthContextType {
   isAuthenticated: boolean;
-  setAuth: (auth: {
-    isAuthenticated: boolean;
-  }) => void;
+  setAuth: (auth: { isAuthenticated: boolean }) => void;
 }
 
 export interface RequestVcData {
@@ -38,10 +36,15 @@ export interface VCResponse {
 
 export interface VPRequest {
   verifierId: number;
-  vcIds: number[]
+  vcIds: number[];
 }
 
 export interface VerfierResponse {
+  id: number;
+  name: string;
+}
+
+export interface VPResponse {
   id: number;
   name: string;
 }

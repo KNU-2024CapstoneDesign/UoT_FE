@@ -1,13 +1,14 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { RouterPath } from './path';
-import { HomePage } from '@/pages/Holder/Home'
-import { HolderSignUpPage } from '@/pages/Holder/Auth/SignUpHolder';
-import { AuthPage } from '@/pages/Holder/Auth';
-import { HolderLoginPage } from '@/pages/Holder/Auth/LoginHolder';
-import { RequestVcPage } from '@/pages/Holder/Vc/RequestVc';
-import { MyVcPage } from '@/pages/Holder/Vc/MyVc';
-import { HolderHomePage } from '@/pages/Holder/Home/HolderHome';
-import { VpSubmitPage } from '@/pages/Holder/Vp/VpSubmit';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { RouterPath } from "./path";
+import { HomePage } from "@/pages/Holder/Home";
+import { HolderSignUpPage } from "@/pages/Holder/Auth/SignUpHolder";
+import { AuthPage } from "@/pages/Holder/Auth";
+import { HolderLoginPage } from "@/pages/Holder/Auth/LoginHolder";
+import { RequestVcPage } from "@/pages/Holder/Vc/RequestVc";
+import { MyVcPage } from "@/pages/Holder/Vc/MyVc";
+import { HolderHomePage } from "@/pages/Holder/Home/HolderHome";
+import { VpSubmitPage } from "@/pages/Holder/Vp/VpSubmit";
+import { ReceiveVPListPage } from "@/pages/Verifier/VP/ReceiveVPList";
 
 const router = createBrowserRouter([
   {
@@ -43,8 +44,12 @@ const router = createBrowserRouter([
       },
       {
         path: RouterPath.sendVP,
-        element: <VpSubmitPage />
-      }
+        element: <VpSubmitPage />,
+      },
+      {
+        path: RouterPath.vpList,
+        element: <ReceiveVPListPage />,
+      },
     ],
   },
 ]);
