@@ -1,20 +1,20 @@
-import { HolderLoginData } from '@/types';
+import { LoginData } from '@/types';
 import { useLogin } from '@/hooks/useLogin'
 import { useState } from 'react';
-import { Wrapper, TitleWrapper, StyledTitleText, StyledConnectWalletText, FormWrapper } from '@/pages/Holder/Auth/SignUpHolder.styles';
+import { Wrapper, TitleWrapper, StyledTitleText, FormWrapper } from '@/pages/Holder/Auth/SignUpHolder.styles';
 import { ConnectWalletButton } from '@/components/ConnectWalletButton';
 import { Input, FormControl, FormLabel, Button } from '@chakra-ui/react';
 
 export const HolderLoginPage = () => {
-  const { handleLogin } = useLogin();
+  const { handleLogin } = useLogin('HOLDER');
   
-  const [ holderLoginData, setHolderLoginData ] = useState<HolderLoginData>({
+  const [ loginData, setLoginData ] = useState<LoginData>({
     walletAddress: '',
     password: '',
   });
 
   const handleWalletConnect = (walletAddress: string) => {
-    setHolderLoginData((prev) => ({
+    setLoginData((prev) => ({
       ...prev,
       walletAddress,
     }));
@@ -22,7 +22,7 @@ export const HolderLoginPage = () => {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { id, value } = e.target;
-    setHolderLoginData((prev) => ({
+    setLoginData((prev) => ({
       ...prev,
       [id]: value,
     }));
@@ -30,7 +30,7 @@ export const HolderLoginPage = () => {
 
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const { walletAddress, password } = holderLoginData;
+    const { walletAddress, password } = loginData;
     const dataToLogin = {walletAddress, password };
 
     await handleLogin(dataToLogin);
@@ -38,8 +38,8 @@ export const HolderLoginPage = () => {
 
   const isFormValid = () => {
     return (
-      holderLoginData.walletAddress &&
-      holderLoginData.password
+      loginData.walletAddress &&
+      loginData.password
     );
   };
 
@@ -60,7 +60,7 @@ export const HolderLoginPage = () => {
               placeholder="비밀번호를 입력해주세요"
               focusBorderColor="#FF1658"
               mb="10px"
-              value={holderLoginData.password}
+              value={loginData.password}
               onChange={handleInputChange}
             />
           </FormControl>

@@ -1,4 +1,4 @@
-import { HolderLoginData } from '@/types';
+import { LoginData } from '@/types';
 import { useLogin } from '@/hooks/useLogin'
 import { useState } from 'react';
 import { Wrapper, TitleWrapper, StyledTitleText, FormWrapper } from '@/pages/Holder/Auth/SignUpHolder.styles';
@@ -9,15 +9,15 @@ import { RouterPath } from '@/routes/path';
 
 export const VerifierLoginPage = () => {
   const navigate = useNavigate();
-  const { handleLogin } = useLogin();
+  const { handleLogin } = useLogin('VERIFIER');
   
-  const [ holderLoginData, setHolderLoginData ] = useState<HolderLoginData>({
+  const [ loginData, setLoginData ] = useState<LoginData>({
     walletAddress: '',
     password: '',
   });
 
   const handleWalletConnect = (walletAddress: string) => {
-    setHolderLoginData((prev) => ({
+    setLoginData((prev) => ({
       ...prev,
       walletAddress,
     }));
@@ -25,7 +25,7 @@ export const VerifierLoginPage = () => {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { id, value } = e.target;
-    setHolderLoginData((prev) => ({
+    setLoginData((prev) => ({
       ...prev,
       [id]: value,
     }));
@@ -33,7 +33,7 @@ export const VerifierLoginPage = () => {
 
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const { walletAddress, password } = holderLoginData;
+    const { walletAddress, password } = loginData;
     const dataToLogin = {walletAddress, password };
 
     await handleLogin(dataToLogin);
@@ -41,8 +41,8 @@ export const VerifierLoginPage = () => {
 
   const isFormValid = () => {
     return (
-      holderLoginData.walletAddress &&
-      holderLoginData.password
+      loginData.walletAddress &&
+      loginData.password
     );
   };
 
@@ -67,7 +67,7 @@ export const VerifierLoginPage = () => {
               placeholder="비밀번호를 입력해주세요"
               focusBorderColor="#FF1658"
               mb="10px"
-              value={holderLoginData.password}
+              value={loginData.password}
               onChange={handleInputChange}
             />
           </FormControl>

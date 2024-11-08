@@ -2,7 +2,7 @@ import { holderSignUp } from "@/api/Holder/holderSignUp"
 import { SignUpData } from "@/types";
 import { useNavigate } from "react-router-dom";
 import { RouterPath } from '@/routes/path';
-import { verifierSignUp } from "@/api/Verifier/holderSignUp";
+import { verifierSignUp } from "@/api/Verifier/verifierSignUp";
 
 export const useSignUp = (registerType: 'HOLDER' | 'VERIFIER') => {
   const navigate = useNavigate();

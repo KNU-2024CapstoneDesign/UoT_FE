@@ -1,10 +1,10 @@
 import { LoginData } from '@/types';
 import { fetchAPI } from '..';
 
-export const holderLogin = async ({ walletAddress, password }: LoginData) => {
+export const verifierLogin = async ({ walletAddress, password }: LoginData) => {
   return await fetchAPI({
     method: 'POST',
-    endpoint: '/auth/holder/login',
+    endpoint: '/auth/verifier/login',
     body: { walletAddress, password },
   });
 };

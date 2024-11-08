@@ -4,7 +4,7 @@ export interface SignUpData {
   name: string;
 }
 
-export interface HolderLoginData {
+export interface LoginData {
   walletAddress: string;
   password: string;
 }
