@@ -19,8 +19,8 @@ export const VPList = () => {
   const handleVerifier = async (id: string) => {
     try {
       const response = await validateVP(id);
-      if (response && response.validateComplete) {
-        setValidatedIds(response.validateComplete);
+      if (response && response.id) {
+        setValidatedIds(response.id);
       }
       console.log("Verification successful");
     } catch (error) {
@@ -59,7 +59,7 @@ export const VPList = () => {
                     key={data.id}
                     style={{
                       backgroundColor: validatedIds.includes(data.id)
-                        ? "blue"
+                        ? "green"
                         : "red",
                       color: "white",
                     }}
