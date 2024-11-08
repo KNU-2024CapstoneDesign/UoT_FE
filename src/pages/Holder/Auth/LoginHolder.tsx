@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Wrapper, TitleWrapper, StyledTitleText, FormWrapper } from '@/pages/Holder/Auth/SignUpHolder.styles';
 import { ConnectWalletButton } from '@/components/ConnectWalletButton';
 import { Input, FormControl, FormLabel, Button } from '@chakra-ui/react';
+import { SignupButton } from '@/components/Auth/SignupButton';
 
 export const HolderLoginPage = () => {
   const { handleLogin } = useLogin('HOLDER');
@@ -77,6 +78,7 @@ export const HolderLoginPage = () => {
           </Button>
         </FormWrapper>
       </form>
+      <SignupButton type='HOLDER' />
     </Wrapper>
   );
 };

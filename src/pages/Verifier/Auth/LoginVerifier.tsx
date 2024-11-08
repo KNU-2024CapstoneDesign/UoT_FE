@@ -5,7 +5,7 @@ import { Wrapper, TitleWrapper, StyledTitleText, FormWrapper } from '@/pages/Hol
 import { ConnectWalletButton } from '@/components/ConnectWalletButton';
 import { Input, FormControl, FormLabel, Button } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
-import { RouterPath } from '@/routes/path';
+import { SignupButton } from '@/components/Auth/SignupButton';
 
 export const VerifierLoginPage = () => {
   const navigate = useNavigate();
@@ -46,10 +46,6 @@ export const VerifierLoginPage = () => {
     );
   };
 
-  const navigateToSignUp = () => {
-    navigate(RouterPath.signupVerifier);
-  }
-
   return (
     <Wrapper>
       <TitleWrapper>
@@ -84,9 +80,7 @@ export const VerifierLoginPage = () => {
           </Button>
         </FormWrapper>
       </form>
-      <Button onClick={navigateToSignUp}>
-        회원가입
-      </Button>
+      <SignupButton type='VERIFIER' />
     </Wrapper>
   );
 };
