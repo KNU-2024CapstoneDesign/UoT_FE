@@ -47,7 +47,7 @@ export const VerifierLoginPage = () => {
   };
 
   const navigateToSignUp = () => {
-    navigate(RouterPath.signupHolder);
+    navigate(RouterPath.signupVerifier);
   }
 
   return (

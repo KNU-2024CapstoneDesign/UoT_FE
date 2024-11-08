@@ -5,10 +5,10 @@ import { Divider, Input, FormControl, FormLabel, Button } from '@chakra-ui/react
 import { Wrapper, TitleWrapper, StyledTitleText, StyledConnectWalletText, FormWrapper } from '@/pages/Holder/Auth/SignUpHolder.styles';
 import { ConnectWalletButton } from '@/components/ConnectWalletButton';
 
-export const HolderSignUpPage = () => {
+export const VerifierSignUpPage = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-  const { handleSignUp } = useSignUp('HOLDER');
+  const { handleSignUp } = useSignUp('VERIFIER');
 
   const [holderSignUpData, setHolderSignUpData] = useState<SignUpData>({
     walletAddress: '',
@@ -62,7 +62,7 @@ export const HolderSignUpPage = () => {
   return (
     <Wrapper>
       <TitleWrapper>
-        <StyledTitleText>사용자 회원가입</StyledTitleText>
+        <StyledTitleText>Verifier 기관 회원가입</StyledTitleText>
       </TitleWrapper>
       <TitleWrapper>
         <StyledConnectWalletText>회원가입을 위해 MetaMask 전자지갑을 연동해주세요.</StyledConnectWalletText>
@@ -101,7 +101,7 @@ export const HolderSignUpPage = () => {
           {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
 
           <FormControl id="name" isRequired>
-            <FormLabel>이름</FormLabel>
+            <FormLabel>기관명</FormLabel>
             <Input
               type="text"
               placeholder="이름을 입력해주세요"

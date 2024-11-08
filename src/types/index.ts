@@ -1,4 +1,4 @@
-export interface HolderSignUpData {
+export interface SignUpData {
   walletAddress: string;
   password: string;
   name: string;

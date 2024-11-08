@@ -10,6 +10,7 @@ import { HolderHomePage } from "@/pages/Holder/Home/HolderHome";
 import { VpSubmitPage } from "@/pages/Holder/Vp/VpSubmit";
 import { ReceiveVPListPage } from "@/pages/Verifier/VP/ReceiveVPList";
 import { VerifierLoginPage } from "@/pages/Verifier/Auth/LoginVerifier";
+import { VerifierSignUpPage } from "@/pages/Verifier/Auth/SignUpVerifier";
 
 const router = createBrowserRouter([
   {
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
       {
         path: RouterPath.sendVP,
         element: <VpSubmitPage />,
+      },
+      {
+        path: RouterPath.signupVerifier,
+        element: <VerifierSignUpPage />,
       },
       {
         path: RouterPath.loginVerifier,
