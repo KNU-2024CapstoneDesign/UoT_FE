@@ -17,24 +17,24 @@ export const HomePage = () => {
           서비스를 이용할 대상을 선택하세요
         </TitleText>
         <TypeWrapper>
-          <CardWrapper>
-            <Link to={RouterPath.loginHolder}>
+          <Link to={RouterPath.loginHolder}>
+            <CardWrapper>
               <CardBody>
                 <CardTitle>
                   Holder 사용자
                 </CardTitle>
               </CardBody>
-            </Link>
-          </CardWrapper>
-          <CardWrapper>
-            <Link to={RouterPath.loginVerifier}>
+            </CardWrapper>
+          </Link>
+          <Link to={RouterPath.loginVerifier}>
+            <CardWrapper>
               <CardBody>
                 <CardTitle>
                   Verifier 기관
                 </CardTitle>
               </CardBody>
-            </Link>
-          </CardWrapper>
+            </CardWrapper>
+          </Link>
         </TypeWrapper>
       </Wrapper>
     </>
