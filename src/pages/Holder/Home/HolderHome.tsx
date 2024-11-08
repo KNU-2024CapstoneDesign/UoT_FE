@@ -16,24 +16,24 @@ export const HolderHomePage = () => {
           증명서를 발급받거나 기존 증명서를 확인하세요
         </TitleText>
         <TypeWrapper>
+        <Link to={RouterPath.requestVc}>
           <CardWrapper>
-            <Link to={RouterPath.requestVc}>
               <CardBody>
                 <CardTitle>
                   증명서 발급
                 </CardTitle>
               </CardBody>
-            </Link>
-          </CardWrapper>
-          <CardWrapper>
-            <Link to={RouterPath.myVc}>
+            </CardWrapper>
+          </Link>
+          <Link to={RouterPath.myVc}>
+            <CardWrapper>
               <CardBody>
                 <CardTitle>
                   발급받은 증명서 관리
                 </CardTitle>
               </CardBody>
-            </Link>
-          </CardWrapper>
+            </CardWrapper>
+          </Link>
         </TypeWrapper>
       </Wrapper>
   );
