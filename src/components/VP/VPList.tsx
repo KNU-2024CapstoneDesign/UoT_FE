@@ -11,8 +11,10 @@ import { validateVP } from "@/api/VP/validateVP";
 
 export const VPList = () => {
   const { vpList } = useVP();
-  const [isExpanded, setIsExpanded] = useState(false);
   const [validatedIds, setValidatedIds] = useState<number[]>([]);
+
+  // 각 VP에 대해 펼침 상태 관리
+  const [expandedState, setExpandedState] = useState<{ [key: number]: boolean }>({});
 
   const handleVerifier = async (id: string) => {
     try {
@@ -26,7 +28,13 @@ export const VPList = () => {
     }
   };
 
-  const toggleExpand = () => setIsExpanded(!isExpanded);
+  // 특정 VP 항목의 펼침 상태 토글
+  const toggleExpand = (id: number) => {
+    setExpandedState((prevState) => ({
+      ...prevState,
+      [id]: !prevState[id],
+    }));
+  };
 
   return (
     <StyledCard>
@@ -41,11 +49,11 @@ export const VPList = () => {
             <StyledButton onClick={() => handleVerifier(String(vp.id))}>
               검증 확인
             </StyledButton>
-            <button onClick={toggleExpand}>
-              {isExpanded ? "모아보기" : "펼쳐보기"}
+            <button onClick={() => toggleExpand(vp.id)}>
+              {expandedState[vp.id] ? "모아보기" : "펼쳐보기"}
             </button>
             <div style={{ marginTop: "10px" }}>
-              {isExpanded &&
+              {expandedState[vp.id] &&
                 vp.vcList?.map((data) => (
                   <Card
                     key={data.id}
@@ -56,11 +64,12 @@ export const VPList = () => {
                       color: "white",
                     }}
                   >
+                    {/* 각 key-value 쌍을 렌더링 */}
                     {Object.entries(data).map(
                       ([key, value]) =>
                         key !== "id" && (
                           <p className="card-text" key={key}>
-                            <strong>{key}:</strong> {value}
+                            <strong>{key}:</strong> {String(value)}
                           </p>
                         )
                     )}
