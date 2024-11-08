@@ -47,4 +47,5 @@ export interface VerfierResponse {
 export interface VPResponse {
   id: number;
   name: string;
+  vcList: VCResponse[];
 }

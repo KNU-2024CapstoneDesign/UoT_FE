@@ -8,6 +8,17 @@ export const Wrapper = styled.div`
   flex-direction: column;
 `;
 
+export const TitleWarpper = styled.div`
+  display: flex;
+`;
+
+export const StyledTitleText = styled.text`
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 20px 0px 30px;
+`;
+
 export const StyledButton = styled(Button)`
   background-color: ${colors.mainColor};
   color: ${colors.white};
