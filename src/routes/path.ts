@@ -1,5 +1,6 @@
 export const RouterPath = {
   root: "/",
+  home: "/",
   holderHome: "/holder",
   auth: "/auth",
   signupHolder: "/holder/signup",
