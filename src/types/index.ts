@@ -17,12 +17,15 @@ export interface AuthContextType {
 export interface RequestVcData {
   holderDid: string;
   issuerId: number;
-  stdId: number;
+  requireData: {
+    [key: string]: string; // 가변 길이 키-값 쌍을 허용
+  };
 }
 
 export interface IssuerResponse {
   id: number;
   name: string;
+  requireData: string[];
 }
 
 export interface VCResponse {

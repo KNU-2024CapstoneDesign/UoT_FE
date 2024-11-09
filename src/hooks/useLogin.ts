@@ -16,7 +16,7 @@ export const useLogin = (type: 'HOLDER' | 'VERIFIER') => {
         case 'HOLDER':
           response = await holderLogin(loginData);
           alert('로그인에 성공했습니다.');
-          localStorage.setItem('accessToken', response);
+          localStorage.setItem('accessToken', response.token);
           setAuth({ isAuthenticated: true });
           navigate(RouterPath.holderHome);
           break;

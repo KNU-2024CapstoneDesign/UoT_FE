@@ -11,11 +11,13 @@ export const RequestVcPage = () => {
   const navigate = useNavigate();
   const { handleRequestVc } = useVcRequest();
   const { issuers } = useIssuer();
+  const [requireData, setRequireData] = useState<string[]>([]);
 
+  // Initialize requireData as an empty object {} to match the expected type { [key: string]: string }
   const [requestVcData, setRequestVcData] = useState<RequestVcData>({
     holderDid: '',
     issuerId: 0,
-    stdId: 0,
+    requireData: {}, // Initialize as an empty object
   });
 
   useEffect(() => {
@@ -41,17 +43,25 @@ export const RequestVcPage = () => {
 
   const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const { value } = e.target;
+    const selectedIssuerId = Number(value);
     setRequestVcData((prev) => ({
       ...prev,
-      issuerId: Number(value), // issuerId로 변경
+      issuerId: selectedIssuerId, // issuerId로 변경
     }));
+    const selectedIssuer = issuers.find(issuer => issuer.id === selectedIssuerId);
+    if (selectedIssuer) {
+      setRequireData(selectedIssuer.requireData); // 선택된 발급처의 requireData를 설정
+    }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { id, value } = e.target;
     setRequestVcData((prev) => ({
       ...prev,
-      [id]: value,
+      requireData: {
+        ...prev.requireData,
+        [id]: value, // Update the specific field in requireData
+      },
     }));
   };
 
@@ -91,16 +101,23 @@ export const RequestVcPage = () => {
             </Select>
           </FormControl>
 
-          <FormControl id='stdId' isRequired>
-            <FormLabel>학번</FormLabel>
-            <Input
-              type='number'
-              placeholder='학번을 입력해주세요'
-              focusBorderColor='#FF1658'
-              mb='10px'
-              onChange={handleInputChange}
-            />
-          </FormControl>
+          {/* 서버 응답에 따라 동적으로 입력 필드를 렌더링 */}
+          {requireData.length > 0 ? (
+            requireData.map((field, index) => (
+              <FormControl key={index} id={field} isRequired>
+                <FormLabel>{field}</FormLabel>
+                <Input
+                  type="text"
+                  placeholder={`Enter ${field}`}
+                  focusBorderColor="#FF1658"
+                  mb="10px"
+                  onChange={handleInputChange}
+                />
+              </FormControl>
+            ))
+          ) : (
+            <Text>발급처의 필수 데이터를 불러오는 중입니다...</Text>
+          )}
         </FormWrapper>
         <Button type='submit' colorScheme='teal' mt='10px'>
           제출
