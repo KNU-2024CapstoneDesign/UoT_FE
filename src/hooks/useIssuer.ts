@@ -9,7 +9,7 @@ export const useIssuer = () => {
     const fetchIssuer = async () => {
       try {
         const data = await getIssuer();
-        setIssuers(data.issuerList);
+        setIssuers(data.issuer);
       } catch (error) {
         console.error('발급처를 불러오는데 실패했습니다.', error);
       }
