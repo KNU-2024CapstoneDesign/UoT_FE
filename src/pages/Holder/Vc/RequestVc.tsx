@@ -116,7 +116,7 @@ export const RequestVcPage = () => {
               </FormControl>
             ))
           ) : (
-            <Text>발급처의 필수 데이터를 불러오는 중입니다...</Text>
+            <Text></Text>
           )}
         </FormWrapper>
         <Button type='submit' colorScheme='teal' mt='10px'>
