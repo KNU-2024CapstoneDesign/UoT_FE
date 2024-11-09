@@ -5,6 +5,7 @@ import {
   StyledCard,
   StyledDefaultText,
   StyledButton,
+  ExpandedWrapper,
 } from "./VPList.styles";
 import { useState } from "react";
 import { validateVP } from "@/api/VP/validateVP";
@@ -52,20 +53,19 @@ export const VPList = () => {
             <button onClick={() => toggleExpand(vp.id)}>
               {expandedState[vp.id] ? "모아보기" : "펼쳐보기"}
             </button>
-            <div style={{ marginTop: "10px" }}>
-              {expandedState[vp.id] &&
-                vp.vcList?.map((data) => (
+            {expandedState[vp.id] && (
+              <ExpandedWrapper>
+                {vp.vcList?.map((data) => (
                   <Card
                     key={data.id}
                     style={{
-                      backgroundColor: validatedIds.includes(data.id)
-                        ? "green"
-                        : "red",
+                      backgroundColor: validatedIds.includes(data.id) ? "green" : "red",
                       color: "white",
+                      marginBottom: "10px", // Add some spacing between cards
                     }}
                   >
                     {/* 각 key-value 쌍을 렌더링 */}
-                    {Object.entries(data).map(
+                    {Object.entries(data.credentialSubject).map(
                       ([key, value]) =>
                         key !== "id" && (
                           <p className="card-text" key={key}>
@@ -75,7 +75,8 @@ export const VPList = () => {
                     )}
                   </Card>
                 ))}
-            </div>
+              </ExpandedWrapper>
+            )}
           </VPBox>
         ))
       )}

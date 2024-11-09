@@ -38,3 +38,9 @@ export const StyledButton = styled(Button)`
     background-color: #ff467e;
   }
 `;
+
+export const ExpandedWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+`;

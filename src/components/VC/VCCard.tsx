@@ -1,6 +1,5 @@
 import { Wrapper, Card } from './VCCard.styles';
 import { useVC } from '@/hooks/useVC';
-import { useNavigate } from 'react-router-dom'; // React Router에서 navigate 훅 가져오기
 import { VCResponse } from '@/types';
 
 type VCCardProps = {
