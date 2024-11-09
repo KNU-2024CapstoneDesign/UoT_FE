@@ -23,7 +23,7 @@ export const useLogin = (type: 'HOLDER' | 'VERIFIER') => {
         case 'VERIFIER':
           response = await verifierLogin(loginData);
           alert('로그인에 성공했습니다.');
-          localStorage.setItem('accessToken', response);
+          localStorage.setItem('accessToken', response.token);
           setAuth({ isAuthenticated: true });
           navigate(RouterPath.vpList);
           break;
