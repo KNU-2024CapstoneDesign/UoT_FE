@@ -35,7 +35,7 @@ export const VCCard: React.FC<VCCardProps> = ({ selectedVCs, setSelectedVCs }) =
           style={{ cursor: 'pointer', border: selectedVCs.includes(data) ? '2px solid blue' : '1px solid gray' }} // 선택된 카드에 스타일 적용
         >
           <h5 className="card-title">{data.issuerName}</h5> {/* 발급기관 */}
-          <p className="card-text">발급일: {data.issuanceDate.split('T')[0]}</p> {/* 날짜 형식 변환 */}
+          <p className="card-text">발급일: {data.issuanceDate}</p> {/* 날짜 형식 변환 */}
           {Object.entries(data.credentialSubject).map(([key, value]) => (
             key !== "id" && (
               <p className="card-text" key={key}>
