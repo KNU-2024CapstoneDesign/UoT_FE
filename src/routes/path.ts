@@ -10,5 +10,6 @@ export const RouterPath = {
   sendVP: "/holder/vp/send",
   loginVerifier: "/verifier/login",
   signupVerifier: "/verifier/signup",
-  vpList: "/verifier/vp",
+  applicantList: "/verifier/applicant",
+  certificateList: "/verifier/certificate",
 };

@@ -1,12 +1,10 @@
+import ApplicantList from "@/components/ApplicantList";
 import {
     Wrapper,
     TitleWrapper,
     StyledTitleText,
-    StyledSubtitleText,
     ContentWrapper,
-    DividerLine,
 } from "./ReceiveVPList.styles";
-import { VPList } from "@/components/VP/VPList";
 import { StyledLogoText } from "@/pages/Holder/Auth/SignUpHolder.styles";
 import { Link } from "react-router-dom";
 
@@ -17,11 +15,10 @@ export const ReceiveVPListPage = () => {
                 <StyledLogoText />
             </Link>
             <TitleWrapper>
-                <StyledTitleText>제출된 자격 증명 목록</StyledTitleText>
-                <StyledSubtitleText>제출받은 증명서의 진위 여부를 검증하세요.</StyledSubtitleText>
+                <StyledTitleText>지원자 목록</StyledTitleText>
             </TitleWrapper>
             <ContentWrapper>
-                <VPList />
+                <ApplicantList />
             </ContentWrapper>
         </Wrapper>
     );

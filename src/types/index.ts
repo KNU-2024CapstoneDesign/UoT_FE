@@ -52,3 +52,26 @@ export interface VPResponse {
   name: string;
   vcList: VCResponse[];
 }
+
+export interface ApplicantResponse {
+  id: number;
+  name: string;
+}
+
+export interface CertificateResponse {
+  id: number;
+  issuerName: string;
+  academicStatus: string;
+  course: string;
+}
+
+export interface ValidateResponse {
+  id: number;
+  issuerName: string;
+  academicStatus: string;
+  course: string;
+}
+
+export interface ValidResultResponse {
+  id: number[];
+}

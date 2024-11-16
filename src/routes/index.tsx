@@ -10,6 +10,7 @@ import { ReceiveVPListPage } from "@/pages/Verifier/VP/ReceiveVPList";
 import { VerifierLoginPage } from "@/pages/Verifier/Auth/LoginVerifier";
 import { VerifierSignUpPage } from "@/pages/Verifier/Auth/SignUpVerifier";
 import { HomePage } from "@/pages";
+import { CertificatePage } from "@/pages/Verifier/Certificate";
 
 const router = createBrowserRouter([
   {
@@ -52,8 +53,12 @@ const router = createBrowserRouter([
         element: <VerifierLoginPage />,
       },
       {
-        path: RouterPath.vpList,
+        path: RouterPath.applicantList,
         element: <ReceiveVPListPage />,
+      },
+      {
+        path: RouterPath.certificateList,
+        element: <CertificatePage />,
       },
     ],
   },

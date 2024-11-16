@@ -29,10 +29,6 @@ export const fetchAPI = async ({
     body: body && !isFormData ? JSON.stringify(body) : body,
   });
 
-  if (!response.ok) {
-    throw new Error('API 요청 실패');
-  }
-
   const contentType = response.headers.get('Content-Type');
   const hasBody = contentType && contentType.includes('application/json');
 
