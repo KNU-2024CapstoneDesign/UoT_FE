@@ -9,20 +9,18 @@ import {
 import { StyledLogoText } from "@/pages/Holder/Auth/SignUpHolder.styles";
 import { Link, useLocation } from "react-router-dom";
 import { ValidationButton } from "@/components/ValidationButton";
-import { CertificateResponse, ValidResultResponse } from "@/types";
+import { ValidateResponse } from "@/types";
 
 export const CertificatePage = () => {
     const location = useLocation();
-    const { applicantId } = location.state || {};
+    const { applicantId, applicantName } = location.state || {};
     
     // State to store validateData and validResult
     const [validateData, setValidateData] = useState<any>(null);
-    const [validResultData, setValidResultData] = useState<any>(null);
 
     // Callback function to update the state when the button is clicked
-    const handleValidation = (data: CertificateResponse[], result: ValidResultResponse) => {
+    const handleValidation = (data: ValidateResponse[]) => {
         setValidateData(data);
-        setValidResultData(result);
     };
 
   return (
@@ -31,7 +29,7 @@ export const CertificatePage = () => {
               <StyledLogoText />
           </Link>
           <TitleWrapper>
-              <StyledTitleText>oo 지원자의 제출 증명서 목록</StyledTitleText>
+              <StyledTitleText>{applicantName} 지원자의 제출 증명서 목록</StyledTitleText>
           </TitleWrapper>
           <ValidationButton 
               applicantId={applicantId} 
@@ -40,8 +38,7 @@ export const CertificatePage = () => {
           <ContentWrapper>
               <CertificateCard 
                   applicantId={applicantId} 
-                  validateData={validateData} 
-                  validResultData={validResultData} 
+                  validateData={validateData}
               />
           </ContentWrapper>
       </Wrapper>

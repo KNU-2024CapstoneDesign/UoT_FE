@@ -11,14 +11,14 @@ export const ApplicantList = () => {
     return <div>제출자가 없습니다.</div>; // 데이터가 없을 경우
   }
 
-  const navigateToCertificatePage = (id: number) => {
-    navigate('/verifier/certificate', { state: { applicantId: id } }); // 데이터 전달
+  const navigateToCertificatePage = (id: number, name: string) => {
+    navigate('/verifier/certificate', { state: { applicantId: id, applicantName: name} }); // 데이터 전달
   };
 
   return (
     <Wrapper>
       {applicantData.map((data) => (
-        <Card key={data.id} onClick={() => navigateToCertificatePage(data.id)}>
+        <Card key={data.id} onClick={() => navigateToCertificatePage(data.id, data.name)}>
           {Object.entries(data).map(([key, value]) => (
             key !== "id" && (
               <p className="card-text" key={key}>

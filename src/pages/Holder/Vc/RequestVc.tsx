@@ -6,7 +6,8 @@ import { useVcRequest } from '@/hooks/useVcRequest';
 import { useIssuer } from '@/hooks/useIssuer';
 import knuSealLogo from './knuSealLogo.png';
 import knuTextLogo from './knuTextLogo.png';
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
+import { RouterPath } from '@/routes/path';
 
 export const RequestVcPage = () => {
   const { handleRequestVc } = useVcRequest();
@@ -19,6 +20,7 @@ export const RequestVcPage = () => {
   });
   const [certificatePreview, setCertificatePreview] = useState('');
   const [issuerSelected, setIssuerSelected] = useState(false); // 발급처 선택 여부 상태
+  const navigator = useNavigate();
 
   useEffect(() => {
     const getWalletAddress = async () => {
@@ -74,6 +76,7 @@ export const RequestVcPage = () => {
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     await handleRequestVc(requestVcData);
+    navigator(RouterPath.myVc);
   };
 
   return (

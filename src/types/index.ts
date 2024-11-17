@@ -70,8 +70,5 @@ export interface ValidateResponse {
   issuerName: string;
   academicStatus: string;
   course: string;
-}
-
-export interface ValidResultResponse {
-  id: number[];
+  valid: boolean;
 }

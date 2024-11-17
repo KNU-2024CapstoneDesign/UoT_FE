@@ -7,6 +7,7 @@ import { Input, FormControl, FormLabel, Button } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 import { SignupButton } from '@/components/Auth/SignupButton';
 import { Link } from 'react-router-dom'; // Link 컴포넌트 추가
+import { RouterPath } from '@/routes/path';
 
 
 export const VerifierLoginPage = () => {
@@ -39,6 +40,7 @@ export const VerifierLoginPage = () => {
     const dataToLogin = {walletAddress, password };
 
     await handleLogin(dataToLogin);
+    navigate(RouterPath.applicantList);
   };
 
   const isFormValid = () => {

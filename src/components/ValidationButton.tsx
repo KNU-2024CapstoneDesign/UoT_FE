@@ -7,22 +7,23 @@ export const ValidationButton = ({
   onValidation,
 }: {
   applicantId: number;
-  onValidation: (data: any, result: any) => void;
+  onValidation: (data: any) => void;
 }) => {
-  const { validateData, validResultData, fetchValidate, fetchValidResult } = useValidate(applicantId);
+  const { validateData, fetchValidate } = useValidate(applicantId);
   
   // State to track if validation is complete
   const [isValidationComplete, setIsValidationComplete] = useState(false);
 
-  const handleClick = () => {
-    fetchValidate(applicantId);
-    fetchValidResult(applicantId);
+  const handleClick = async () => {
+    // Fetch the validation data
+    await fetchValidate(applicantId);
 
     // Once the validation is complete, update the state
     setIsValidationComplete(true);
 
     // Trigger the onValidation callback with the fetched data
-    onValidation(validateData, validResultData);
+    // Make sure validateData has been updated before passing it
+    onValidation(validateData);
   }
 
   return (
