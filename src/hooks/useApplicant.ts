@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react"
-import { ApplicantResponse } from "@/types";
+import { Applicant } from "@/types";
 import { getApplicant } from "@/api/Verifier/getApplicant";
 
 export const useApplicant = () => {
-  const [ applicantData, setApplicantData ] = useState<ApplicantResponse[]>([]);
+  const [ applicantData, setApplicantData ] = useState<Applicant[]>([]);
   const fetchCertificate = async () => {
     try {
       const data = await getApplicant();
