@@ -10,9 +10,9 @@ import { Link } from 'react-router-dom'; // Link 컴포넌트 추가
 export const HolderHomePage = () => {
   return  (
     <Wrapper>
-        <Link to="/">
-            <StyledLogoText></StyledLogoText> {/* 로고 텍스트 추가 */}
-        </Link>
+      <Link to="/">
+        <StyledLogoText />
+      </Link>
       <TitleText fontSize='3x1' as='b'>
         증명서를 발급받거나 기존 증명서를 확인하세요
       </TitleText>

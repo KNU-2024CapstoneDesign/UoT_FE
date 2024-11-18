@@ -11,17 +11,12 @@ export const Wrapper = styled.div`
     margin: 0 auto;
 `;
 
-export const TitleWrapper = styled.div`
-    margin-bottom: 20px;
-    text-align: center;
-`;
-
-export const StyledTitleText = styled.h1`
+export const TitleText = styled.text`
     font-size: 24px;
     font-weight: bold;
-    color: ${colors.mainColor};
-    margin-bottom: 10px;
+    margin-top: 30px;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    text-align: center;
 `;
 
 export const StyledSubtitleText = styled.h2`

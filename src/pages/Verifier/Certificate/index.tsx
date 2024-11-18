@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import CertificateCard from "@/components/VC/CertificateCard";
 import {
   Wrapper,
-  TitleWrapper,
-  StyledTitleText,
+  TitleText,
   ContentWrapper,
 } from "./index.styles";
 import { StyledLogoText } from "@/pages/Holder/Auth/SignUpHolder.styles";
@@ -28,9 +27,9 @@ export const CertificatePage = () => {
           <Link to="/">
               <StyledLogoText />
           </Link>
-          <TitleWrapper>
-              <StyledTitleText>{applicantName} 지원자의 제출 증명서 목록</StyledTitleText>
-          </TitleWrapper>
+          <TitleText fontSize='3x1' as='b'>
+              {applicantName} 지원자의 제출 증명서 목록
+          </TitleText>
           <ValidationButton 
               applicantId={applicantId} 
               onValidation={handleValidation}  // Pass the callback to the button

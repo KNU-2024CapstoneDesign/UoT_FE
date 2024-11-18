@@ -16,6 +16,14 @@ export const TitleWrapper = styled.div`
     text-align: center;
 `;
 
+export const TitleText = styled.text`
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 30px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    text-align: center;
+`;
+
 export const StyledTitleText = styled.h1`
     font-size: 24px;
     font-weight: bold;
